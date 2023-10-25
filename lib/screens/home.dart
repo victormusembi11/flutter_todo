@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: _buildAppBar(),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
             searchBar(),
@@ -31,12 +31,12 @@ class Home extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 50,
               bottom: 20,
             ),
-            child: Text(
-              'All Todos',
+            child: const Text(
+              'Schedule',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
@@ -58,7 +58,7 @@ class Home extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: TextField(
+      child: const TextField(
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(
@@ -85,12 +85,12 @@ class Home extends StatelessWidget {
     return AppBar(
       backgroundColor: tdBGColor,
       title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Icon(
+        const Icon(
           Icons.menu,
           color: tdBlack,
           size: 30,
         ),
-        Container(
+        SizedBox(
           height: 40,
           width: 40,
           child: ClipRRect(
