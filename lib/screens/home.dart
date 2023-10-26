@@ -59,8 +59,9 @@ class _HomeState extends State<Home> {
                   Radius.circular(10),
                 ),
               ),
-              child: const TextField(
-                decoration: InputDecoration(
+              child: TextField(
+                controller: _todoController,
+                decoration: const InputDecoration(
                   hintText: 'Add a new todo item',
                   border: InputBorder.none,
                 ),
