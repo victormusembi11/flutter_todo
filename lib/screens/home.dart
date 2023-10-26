@@ -79,7 +79,6 @@ class _HomeState extends State<Home> {
                 padding: const EdgeInsets.all(20),
               ),
               onPressed: () {
-                print(_todoController.text);
                 _addTodoItem(_todoController.text);
               },
               child: const Text(
@@ -136,8 +135,6 @@ class _HomeState extends State<Home> {
   }
 
   void _addTodoItem(String toDo) {
-    print("hello");
-
     setState(() {
       todosList.add(
         ToDo(
