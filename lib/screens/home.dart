@@ -107,10 +107,24 @@ class _HomeState extends State<Home> {
           for (ToDo todoo in todosList)
             ToDoItem(
               todo: todoo,
+              onToDoChanged: _handleToDoChange,
+              onDeleteItem: _deleteToDoItem,
             ),
         ],
       ),
     );
+  }
+
+  void _handleToDoChange(ToDo todo) {
+    setState(() {
+      todo.isDone = !todo.isDone; // toggle the value
+    });
+  }
+
+  void _deleteToDoItem(String id) {
+    setState(() {
+      todosList.removeWhere((item) => item.id == id);
+    });
   }
 
   Widget searchBar() {
