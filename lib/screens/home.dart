@@ -26,7 +26,6 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               children: [
-                searchBar(),
                 todoList(),
               ],
             ),
@@ -102,8 +101,8 @@ class _HomeState extends State<Home> {
         children: [
           Container(
             margin: const EdgeInsets.only(
-              top: 50,
-              bottom: 20,
+              top: 20,
+              bottom: 35,
             ),
             child: const Text(
               'Schedule',
@@ -149,35 +148,6 @@ class _HomeState extends State<Home> {
 
       _todoController.clear(); // clear the input field
     });
-  }
-
-  Widget searchBar() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: const TextField(
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          prefixIcon: Icon(
-            Icons.search,
-            color: tdBlack,
-            size: 20,
-          ),
-          prefixIconConstraints: BoxConstraints(
-            minWidth: 40,
-            maxHeight: 30,
-          ),
-          border: InputBorder.none,
-          hintText: 'Search',
-          hintStyle: TextStyle(
-            color: tdGrey,
-            fontSize: 16,
-          ),
-        ),
-      ),
-    );
   }
 
   AppBar _buildAppBar() {
