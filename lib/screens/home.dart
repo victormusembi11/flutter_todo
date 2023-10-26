@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todosList = ToDo.todoList();
+  final _todoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,30 +60,34 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(
-                    bottom: 20,
-                    right: 20,
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: tdBlue,
-                      shape: const CircleBorder(),
-                      padding: const EdgeInsets.all(20),
-                    ),
-                    child: const Text(
-                      '+',
-                      style: TextStyle(
-                        fontSize: 40,
-                      ),
-                    ),
-                  ),
-                )
+                // addTodoInput()
               ],
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget addTodoInput() {
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 20,
+        right: 20,
+      ),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: tdBlue,
+          shape: const CircleBorder(),
+          padding: const EdgeInsets.all(20),
+        ),
+        child: const Text(
+          '+',
+          style: TextStyle(
+            fontSize: 40,
+          ),
+        ),
       ),
     );
   }
