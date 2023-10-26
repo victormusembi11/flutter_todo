@@ -5,7 +5,7 @@ import '../constants/colors.dart';
 import '../widgets/todo_widget.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -31,63 +31,66 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(
-                      bottom: 20,
-                      right: 20,
-                      left: 20,
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 5,
-                    ),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Add a new todo item',
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                ),
-                // addTodoInput()
-              ],
-            ),
-          )
+          addTodoInput(),
         ],
       ),
     );
   }
 
   Widget addTodoInput() {
-    return Container(
-      margin: const EdgeInsets.only(
-        bottom: 20,
-        right: 20,
-      ),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: tdBlue,
-          shape: const CircleBorder(),
-          padding: const EdgeInsets.all(20),
-        ),
-        child: const Text(
-          '+',
-          style: TextStyle(
-            fontSize: 40,
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(
+                bottom: 20,
+                right: 20,
+                left: 20,
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 5,
+              ),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              child: const TextField(
+                decoration: InputDecoration(
+                  hintText: 'Add a new todo item',
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
           ),
-        ),
+          Container(
+            margin: const EdgeInsets.only(
+              bottom: 20,
+              right: 20,
+            ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: tdBlue,
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(20),
+              ),
+              onPressed: () {
+                print(_todoController.text);
+                _addTodoItem(_todoController.text);
+              },
+              child: const Text(
+                '+',
+                style: TextStyle(
+                  fontSize: 40,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -129,6 +132,21 @@ class _HomeState extends State<Home> {
   void _deleteToDoItem(String id) {
     setState(() {
       todosList.removeWhere((item) => item.id == id);
+    });
+  }
+
+  void _addTodoItem(String toDo) {
+    print("hello");
+
+    setState(() {
+      todosList.add(
+        ToDo(
+          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          todoText: toDo,
+        ),
+      );
+
+      _todoController.clear(); // clear the input field
     });
   }
 
