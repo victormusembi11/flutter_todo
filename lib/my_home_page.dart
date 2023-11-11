@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/controllers/tap_controller.dart';
+import 'package:flutter_todo/screens/first_page.dart';
 import 'package:get/get.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -60,7 +61,9 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => FirstPage());
+              },
               child: Container(
                 margin: const EdgeInsets.all(20),
                 width: double.maxFinite,
@@ -71,7 +74,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 child: const Center(
                     child: Text(
-                        "tap",
+                        "Go to First Page",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
